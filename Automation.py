@@ -1,4 +1,7 @@
-def main():
+import os
+import shutil
+
+def makeMain():
     m= open("main.cpp", "w+")
     m.write("""
     #include <iostream>
@@ -25,4 +28,12 @@ def main():
     #endif
     """)
     e.close()
-main()
+def makeDirectory():
+    lab= raw_input("What do you want the name of the directory to be: ")
+    os.mkdir(lab)
+    shutil.move("main.cpp", lab)
+    shutil.move("Executive.h", lab)
+
+
+makeMain()
+makeDirectory()
